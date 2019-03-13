@@ -18,7 +18,7 @@ fs.readFile(modal, "utf8", function(err, data) {
   if (data.search("TranslucentModalHostView") === -1) {
     let str = data.replace(
       /^ *const +RCTModalHostView.*$/gm,
-      `const requireNativeComponent = require('requireNativeComponent'); const RCTModalHostView = Platform.OS === 'ios' ? requireNativeComponent('RCTModalHostView') : requireNativeComponent('TranslucentModalHostView'); const RCTModalHostView = Platform.OS === 'ios' ? requireNativeComponent('RCTModalHostView') : requireNativeComponent('TranslucentModalHostView');`
+      `const requireNativeComponent = require('requireNativeComponent'); const RCTModalHostView = Platform.OS === 'ios' ? requireNativeComponent('RCTModalHostView') : requireNativeComponent('TranslucentModalHostView');`
     );
     fs.outputFile(modal, str);
   }
